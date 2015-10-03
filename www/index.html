@@ -28,17 +28,17 @@
   </head>
 <body ng-app="starter">
 
-  <ion-pane ng-controller="OverviewController as vm">
+  <ion-pane ng-controller="OverviewController as overview">
     <ion-header-bar class="bar-stable">
       <h1 class="title">🎂  Birthdays  🎉</h1>
       <div class="buttons">
-        <button ng-click="vm.showAddBirthdayModal()" class="button button-icon icon ion-android-add"></button>
+        <button ng-click="overview.showAddBirthdayModal()" class="button button-icon icon ion-android-add"></button>
       </div>
 
     </ion-header-bar>
     <ion-content>        
       <ion-list>
-        <ion-item ng-repeat="b in vm.birthdays" ng-click="vm.showEditBirthdayModal(b)">
+        <ion-item ng-repeat="b in overview.birthdays" ng-click="overview.showEditBirthdayModal(b)">
           <div style="float: left">{{ b.Name }}</div>
           <div style="float: right">{{ b.Date | date:"dd MMMM yyyy" }}</div>
         </ion-item>
@@ -49,22 +49,22 @@
   <script id="add-or-edit-birthday.html" type="text/ng-template">
     <ion-modal-view>
       <ion-header-bar>
-        <h1 class="title">{{ action }} Birthday</h1> 
+        <h1 class="title">{{ overview.action }} Birthday</h1> 
         <div class="buttons">
-        <button ng-hide="isAdd" ng-click="deleteBirthday()" class="button button-icon icon ion-trash-a"></button>
+        <button ng-hide="isAdd" ng-click="overview.deleteBirthday()" class="button button-icon icon ion-trash-a"></button>
         </div>
       </ion-header-bar>
       <ion-content>
         <div class="list list-inset">
           <label class="item item-input">
-          <input type="text" placeholder="Name" ng-model="birthday.Name">
+          <input type="text" placeholder="Name" ng-model="overview.birthday.Name">
           </label>
           <label class="item item-input">
-          <input type="date" placeholder="Birthday" ng-model="birthday.Date">
+          <input type="date" placeholder="Birthday" ng-model="overview.birthday.Date">
           </label>
         </div>
         <div class="padding">
-          <button ng-click="saveBirthday()" class="button button-block button-positive activated">Save</button>
+          <button ng-click="overview.saveBirthday()" class="button button-block button-positive activated">Save</button>
         </div>
       </ion-content>
     </ion-modal-view>
