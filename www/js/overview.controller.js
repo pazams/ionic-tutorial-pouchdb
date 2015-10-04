@@ -15,9 +15,6 @@
         vm.saveBirthday = saveBirthday;
         vm.deleteBirthday = deleteBirthday;
 
-        // var thisScope = $rootScope.$new(true);
-        // angular.extend(thisScope, vm);
-
         // Initialize the database.
         $ionicPlatform.ready(function() {
             birthdayService.initDB();
